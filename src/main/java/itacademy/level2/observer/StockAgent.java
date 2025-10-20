@@ -3,23 +3,30 @@ package itacademy.level2.observer;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StockAgent {
+public class StockAgent implements StockObservable {
     private List<StockObserver> observers = new ArrayList<>();
     private String stockState;
 
-    public void addObserver(StockObserver observer) {
-        observers.add(observer);
+    @Override
+    public void addObserver(StockObserver o) {
+        observers.add(o);
     }
 
-    public void setEstatBorsa(String nouEstat) {
-        this.stockState = nouEstat;
-        notifyObservers();
+    @Override
+    public void deleteObserver(StockObserver o) {
+        observers.remove(o);
     }
 
-    private void notifyObservers() {
+    @Override
+    public void setEstatBorsa(String stockState) {
+        this.stockState = stockState;
+        notifyObserver();
+    }
+
+    @Override
+    public void notifyObserver() {
         for (StockObserver observer : observers) {
             observer.update("La borsa ara està: " + stockState);
         }
     }
-
 }

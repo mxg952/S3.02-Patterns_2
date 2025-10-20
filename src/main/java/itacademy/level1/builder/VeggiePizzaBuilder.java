@@ -4,24 +4,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class VeggiePizzaBuilder implements PizzaBuilder {
-    private String size;
-    private String dough;
-    private List<String> toppings = new ArrayList<>();
+    private Pizza pizza;
+
+    public VeggiePizzaBuilder() {
+        this.pizza = new Pizza();
+    }
 
     @Override
-    public void setSize(String size) { this.size = size; }
+    public void buildSize(String size) {
+        pizza.setSize(size);
+    }
 
     @Override
-    public void setDough(String dough) { this.dough = dough; }
+    public void buildDough(String dough) {
+        pizza.setDough(dough);
+    }
 
     @Override
-    public void addTopping(String topping) { toppings.add(topping); }
+    public void buildToppings() {
+        pizza.setToppings("Tomàquet, Formatge, Rúcula, Pebrots");
+    }
 
     @Override
-    public Pizza build() {
-        if (!toppings.contains("peppers")) toppings.add("peppers");
-        if (!toppings.contains("onion")) toppings.add("onion");
-        if (!toppings.contains("mushrooms")) toppings.add("mushrooms");
-        return new Pizza(size, dough, toppings);
+    public Pizza buildPizza() {
+        return this.pizza;
     }
 }

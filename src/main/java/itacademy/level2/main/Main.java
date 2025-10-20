@@ -16,6 +16,5 @@ public class Main {
 
         agent.setEstatBorsa("pujant");
         agent.setEstatBorsa("baixant");
-
     }
 }

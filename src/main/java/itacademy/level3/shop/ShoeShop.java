@@ -12,5 +12,4 @@ public class ShoeShop {
         gateway.processPayment(price, method);
         System.out.println("Pagament processat. Gràcies!");
     }
-
 }

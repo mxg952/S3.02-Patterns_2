@@ -1,15 +1,28 @@
 package itacademy.level1.builder;
 
-import java.util.List;
-
 public class Pizza {
     private String size;
     private String dough;
-    private List<String> toppings;
+    private String toppings;
 
-    public Pizza(String size, String dough, List<String> toppings) {
+    public Pizza() {
+    }
+
+    public Pizza(String size, String dough, String toppings) {
         this.size = size;
         this.dough = dough;
+        this.toppings = toppings;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public void setDough(String dough) {
+        this.dough = dough;
+    }
+
+    public void setToppings(String toppings) {
         this.toppings = toppings;
     }
 

@@ -4,29 +4,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HawaiianPizzaBuilder implements PizzaBuilder {
-    private String size;
-    private String dough;
-    private List<String> toppings = new ArrayList<>();
+    private Pizza pizza;
 
-    @Override
-    public void setSize(String size) {
-        this.size = size;
+    public HawaiianPizzaBuilder() {
+        this.pizza = new Pizza();
     }
 
     @Override
-    public void setDough(String dough) {
-        this.dough = dough;
+    public void buildSize(String size) {
+        pizza.setSize(size);
     }
 
     @Override
-    public void addTopping(String topping) {
-        toppings.add(topping);
+    public void buildDough(String dough) {
+        pizza.setDough(dough);
     }
 
     @Override
-    public Pizza build() {
-        if (!toppings.contains("ham")) toppings.add("ham");
-        if (!toppings.contains("pineapple")) toppings.add("pineapple");
-        return new Pizza(size, dough, toppings);
+    public void buildToppings() {
+        pizza.setToppings("Tomàquet, Formatge, Pernil, Pinya");
+    }
+
+    @Override
+    public Pizza buildPizza() {
+        return this.pizza;
     }
 }

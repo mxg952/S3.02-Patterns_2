@@ -11,6 +11,5 @@ public class StockAgency implements StockObserver {
     @Override
     public void update(String message) {
         System.out.println(this.name + " rep notificació: " + message);
-
     }
 }

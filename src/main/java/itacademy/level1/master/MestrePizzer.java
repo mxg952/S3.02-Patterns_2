@@ -4,28 +4,20 @@ import itacademy.level1.builder.Pizza;
 import itacademy.level1.builder.PizzaBuilder;
 
 public class MestrePizzer {
-    private PizzaBuilder builder;
+    private PizzaBuilder pizzaBuilder;
 
-    public MestrePizzer(PizzaBuilder builder) {
-        this.builder = builder;
+    public void setPizzaBuilder(PizzaBuilder pb) {
+        this.pizzaBuilder = pb;
     }
 
-    public Pizza makeMediumThinHawaiian() {
-        builder.setSize("medium");
-        builder.setDough("thin");
-        builder.addTopping("cheddar");
-        builder.addTopping("bacon");
-
-        return builder.build();
+    public void buildPizza(String size, String dough) {
+        pizzaBuilder.buildSize(size);
+        pizzaBuilder.buildDough(dough);
+        pizzaBuilder.buildToppings();
     }
 
-    public Pizza makeLargeThickVeggie() {
-        builder.setSize("large");
-        builder.setDough("thick");
-        builder.addTopping("pepperoni veggie");
-        builder.addTopping("carrot");
-
-        return builder.build();
+    public Pizza getPizza() {
+        return pizzaBuilder.buildPizza();
     }
 
 }
